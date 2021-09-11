@@ -1,0 +1,91 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Weather Report Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div class="body">
+    <div class="container">
+      <div class="head-section">
+        <div class="row row-cols-2 head-section-1">
+          <div class="col" id="local-time">São Paulo, Monday Aug 2, 13:00</div>
+        </div>
+        <div class="row row-cols-3 main-head-section">
+          <div class="col degree-link-text">
+            <button class="button" id="button-c">C°</button> |
+            <button class="button" id="button-f">F°</button>
+          </div>
+          <div class="col-5 main-info" id="temperature-value">19°</div>
+        </div>
+        <div class="row row-cols-1 head-section-2">
+          <div class="col extra-info">Sunny</div>
+          <div class="col extra-info">Thermal Sensation: 20°</div>
+          <div class="col extra-info">Precipitacion: 18%</div>
+          <div class="col extra-info">Humidity: 70%</div>
+        </div>
+        <div class="row row-cols-3 head-section-3">
+          <div class="col">17:00</div>
+          <div class="col">21:00</div>
+          <div class="col">01:00</div>
+          <div class="col">17°</div>
+          <div class="col">13°</div>
+          <div class="col">11°</div>
+        </div>
+      </div>
+      <div class="middle-section">
+        <div class="row row-cols-3 middle-section-1">
+          <div class="col">Date</div>
+          <div class="col">Weather</div>
+          <div class="col">Max°/Min°</div>
+        </div>
+        <div class="row row-cols-3 middle-section-2">
+          <div class="col">08/03</div>
+          <div class="col">☀</div>
+          <div class="col">23°/11°</div>
+          <div class="col">08/04</div>
+          <div class="col">🌥</div>
+          <div class="col">24°/12°</div>
+          <div class="col">08/05</div>
+          <div class="col">🌧</div>
+          <div class="col">22°/11°</div>
+          <div class="col">08/06</div>
+          <div class="col">🌥</div>
+          <div class="col">23°/12°</div>
+          <div class="col">08/07</div>
+          <div class="col">☁</div>
+          <div class="col">24°/12°</div>
+        </div>
+      </div>
+      <form class="location-search" id="search-bar">
+        <input type="text" placeholder="Enter the city" id="city-name-input" />
+        <input type="submit" value="search 🔍" />
+        <button class="current-location" id="current-location-button">
+          current location
+        </button>
+      </form>
+    </div>
+    </div>
+    <div class="code-source">
+    <a href="">Open-source code</a>
+    by Sabrina Onishi
+    </div>
+
+    <script src="src/script.js"></script>
+  </body>
+</html>
