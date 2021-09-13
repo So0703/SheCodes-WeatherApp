@@ -72,7 +72,19 @@ function displayTemp(response) {
   );
 }
 
-let apiKey = `8be41953f4397437428711de5898be13`;
-let city = `tokyo`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayTemp);
+function defineTempData(city) {
+  let apiKey = `8be41953f4397437428711de5898be13`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemp);
+}
+
+function searchCity(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-name-input");
+  defineTempData(cityInput.value);
+}
+
+let form = document.querySelector("#search-bar");
+form.addEventListener("submit", searchCity);
+
+defineTempData("São Paulo");
