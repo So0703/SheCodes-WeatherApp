@@ -30,8 +30,7 @@ function displayDateTime(timestamp) {
     "Saturday",
   ];
   let week = weeks[now.getDay()];
-  console.log(now);
-  //return `, ${week} ${month} ${day} ${hour}:${minute}`;
+  return `${week}, ${month} ${day}, ${hour}:${minute}`;
 }
 
 function displayTemp(response) {
@@ -40,6 +39,7 @@ function displayTemp(response) {
   let wind = response.data.wind.speed;
   let humidity = response.data.main.humidity;
   let localName = response.data.name;
+  let datastamp = response.data.dt;
 
   let tempValue = document.querySelector("#temperature");
   let weatherDescription = document.querySelector("#description");
@@ -53,7 +53,7 @@ function displayTemp(response) {
   windSpeed.innerHTML = `${wind}`;
   humidityLevel.innerHTML = `${humidity}`;
   cityName.innerHTML = `${localName}`;
-  dateTime.innerHTML = displayDateTime(response.date.dt * 1000);
+  dateTime.innerHTML = displayDateTime(datastamp * 1000);
 }
 
 let apiKey = `8be41953f4397437428711de5898be13`;
