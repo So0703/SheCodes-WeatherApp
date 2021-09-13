@@ -1,8 +1,14 @@
 function displayDateTime(timestamp) {
   let now = new Date(timestamp);
   let day = now.getDate();
+  if (day < 10) {
+    day = `0${day}`;
+  }
   let hour = now.getHours();
   let minute = now.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
 
   let months = [
     "Jan",
