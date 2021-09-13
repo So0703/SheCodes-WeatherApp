@@ -21,69 +21,81 @@
   </head>
   <body>
     <div class="body">
-    <div class="container">
-      <div class="head-section">
-        <div class="row row-cols-2 head-section-1">
-          <div class="col" id="local-time">São Paulo, Monday Aug 2, 13:00</div>
-        </div>
-        <div class="row row-cols-3 main-head-section">
-          <div class="col degree-link-text">
-            <button class="button" id="button-c">C°</button> |
-            <button class="button" id="button-f">F°</button>
+      <div class="container">
+        <div class="head-section">
+          <div class="row row-cols-2 head-section-1">
+            <div class="col local-time">
+              <span id="local"></span>
+              <span id="date">, Monday Aug 2, 13:00 </span>
+            </div>
           </div>
-          <div class="col-5 main-info" id="temperature-value">19°</div>
+          <div class="row row-cols-3 main-head-section">
+            <div class="col degree-link-text">
+              <button class="button" id="button-c">C°</button> |
+              <button class="button" id="button-f">F°</button>
+            </div>
+            <div class="col-5 main-info" id="temperature"></div>
+          </div>
+          <div class="row row-cols-1 head-section-2">
+            <div class="col extra-info" id="description"></div>
+            <div class="col extra-info">
+              Wind Speed: <span id="wind"></span> km/h
+            </div>
+            <div class="col extra-info">
+              Humidity: <span id="humidity"></span>%
+            </div>
+          </div>
+          <div class="row row-cols-3 head-section-3">
+            <div class="col">17:00</div>
+            <div class="col">21:00</div>
+            <div class="col">01:00</div>
+            <div class="col">17°</div>
+            <div class="col">13°</div>
+            <div class="col">11°</div>
+          </div>
         </div>
-        <div class="row row-cols-1 head-section-2">
-          <div class="col extra-info">Sunny</div>
-          <div class="col extra-info">Thermal Sensation: 20°</div>
-          <div class="col extra-info">Precipitacion: 18%</div>
-          <div class="col extra-info">Humidity: 70%</div>
+        <div class="middle-section">
+          <div class="row row-cols-3 middle-section-1">
+            <div class="col">Date</div>
+            <div class="col">Weather</div>
+            <div class="col">Max°/Min°</div>
+          </div>
+          <div class="row row-cols-3 middle-section-2">
+            <div class="col">08/03</div>
+            <div class="col">☀</div>
+            <div class="col">23°/11°</div>
+            <div class="col">08/04</div>
+            <div class="col">🌥</div>
+            <div class="col">24°/12°</div>
+            <div class="col">08/05</div>
+            <div class="col">🌧</div>
+            <div class="col">22°/11°</div>
+            <div class="col">08/06</div>
+            <div class="col">🌥</div>
+            <div class="col">23°/12°</div>
+            <div class="col">08/07</div>
+            <div class="col">☁</div>
+            <div class="col">24°/12°</div>
+          </div>
         </div>
-        <div class="row row-cols-3 head-section-3">
-          <div class="col">17:00</div>
-          <div class="col">21:00</div>
-          <div class="col">01:00</div>
-          <div class="col">17°</div>
-          <div class="col">13°</div>
-          <div class="col">11°</div>
-        </div>
+        <form class="location-search" id="search-bar">
+          <input
+            type="text"
+            placeholder="Enter the city"
+            id="city-name-input"
+          />
+          <input type="submit" value="search 🔍" />
+          <button class="current-location" id="current-location-button">
+            current location
+          </button>
+        </form>
       </div>
-      <div class="middle-section">
-        <div class="row row-cols-3 middle-section-1">
-          <div class="col">Date</div>
-          <div class="col">Weather</div>
-          <div class="col">Max°/Min°</div>
-        </div>
-        <div class="row row-cols-3 middle-section-2">
-          <div class="col">08/03</div>
-          <div class="col">☀</div>
-          <div class="col">23°/11°</div>
-          <div class="col">08/04</div>
-          <div class="col">🌥</div>
-          <div class="col">24°/12°</div>
-          <div class="col">08/05</div>
-          <div class="col">🌧</div>
-          <div class="col">22°/11°</div>
-          <div class="col">08/06</div>
-          <div class="col">🌥</div>
-          <div class="col">23°/12°</div>
-          <div class="col">08/07</div>
-          <div class="col">☁</div>
-          <div class="col">24°/12°</div>
-        </div>
-      </div>
-      <form class="location-search" id="search-bar">
-        <input type="text" placeholder="Enter the city" id="city-name-input" />
-        <input type="submit" value="search 🔍" />
-        <button class="current-location" id="current-location-button">
-          current location
-        </button>
-      </form>
-    </div>
     </div>
     <div class="code-source">
-    <a href="https://github.com/So0703/SheCodes-WeatherApp" target="_blank">Open-source code</a>
-    by Sabrina Onishi
+      <a href="https://github.com/So0703/SheCodes-WeatherApp" target="_blank"
+        >Open-source code</a
+      >
+      by Sabrina Onishi
     </div>
 
     <script src="src/script.js"></script>

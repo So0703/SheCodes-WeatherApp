@@ -1,7 +1,7 @@
 .body {
   background: white;
   border: 3px solid black;
-  margin: 70px 284.250px 10px 284.250px;
+  margin: 70px 284.25px 10px 284.25px;
   width: 55%;
   border-radius: 10px;
   text-align: center;
@@ -31,7 +31,8 @@
 }
 .degree-link-text {
   position: relative;
-  top: 100px;
+  top: 65px;
+  right: -65px;
 }
 .button {
   text-decoration: underline;
@@ -57,6 +58,7 @@
   font-size: small;
   text-align: right;
 }
+
 .head-section-3 {
   font-size: small;
   margin: 0px 5px 20px 5px;
@@ -92,7 +94,7 @@
 .current-location:hover {
   background-color: rgb(218, 218, 218);
 }
-.code-source{
+.code-source {
   text-align: center;
   margin-bottom: 20px;
 }
