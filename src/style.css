@@ -1,3 +1,11 @@
+body {
+  background: linear-gradient(
+    93.1deg,
+    rgb(238, 254, 183) 19.1%,
+    rgb(169, 254, 222) 53.9%,
+    rgb(90, 222, 255) 92%
+  );
+}
 .body {
   background: white;
   border: 3px solid black;
@@ -31,8 +39,8 @@
 }
 .degree-link-text {
   position: relative;
-  top: 65px;
-  right: -65px;
+  top: 70px;
+  right: -25px;
 }
 .button {
   text-decoration: underline;

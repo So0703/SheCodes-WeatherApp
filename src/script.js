@@ -46,6 +46,9 @@ function displayTemp(response) {
   let humidity = response.data.main.humidity;
   let localName = response.data.name;
   let datastamp = response.data.dt;
+  let minTemp = Math.round(response.data.main.temp_min);
+  let maxtemp = Math.round(response.data.main.temp_max);
+  let icon = response.data.weather[0].icon;
 
   let tempValue = document.querySelector("#temperature");
   let weatherDescription = document.querySelector("#description");
@@ -53,6 +56,8 @@ function displayTemp(response) {
   let humidityLevel = document.querySelector("#humidity");
   let cityName = document.querySelector("#local");
   let dateTime = document.querySelector("#date");
+  let tempMinMax = document.querySelector("#min-max");
+  let iconImage = document.querySelector("#weather-icon");
 
   tempValue.innerHTML = `${temp}°`;
   weatherDescription.innerHTML = `${describe}`;
@@ -60,9 +65,14 @@ function displayTemp(response) {
   humidityLevel.innerHTML = `${humidity}`;
   cityName.innerHTML = `${localName}`;
   dateTime.innerHTML = displayDateTime(datastamp * 1000);
+  tempMinMax.innerHTML = `${minTemp}°/${maxtemp}`;
+  iconImage.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${icon}@2x.png`
+  );
 }
 
 let apiKey = `8be41953f4397437428711de5898be13`;
-let city = `São Paulo`;
+let city = `tokyo`;
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 axios.get(apiUrl).then(displayTemp);
