@@ -40,7 +40,9 @@ function displayDateTime(timestamp) {
 }
 
 function displayTemp(response) {
-  let temp = Math.round(response.data.main.temp);
+  cTempValue = response.data.main.temp;
+
+  let temp = Math.round(cTempValue);
   let describe = response.data.weather[0].description;
   let wind = response.data.wind.speed;
   let humidity = response.data.main.humidity;
@@ -84,7 +86,33 @@ function searchCity(event) {
   defineTempData(cityInput.value);
 }
 
+function showFTemp(event) {
+  event.preventDefault();
+  let fTemp = Math.round((cTempValue * 9) / 5 + 32);
+  let tempValue = document.querySelector("#temperature");
+  tempValue.innerHTML = `${fTemp}°`;
+}
+
+function showCTemp(event) {
+  event.preventDefault();
+  let tempValue = document.querySelector("#temperature");
+  let cTemp = Math.round(cTempValue);
+  tempValue.innerHTML = `${cTemp}°`;
+}
+
+let cTempValue = null;
+
+let fButton = document.querySelector("#button-f");
+fButton.addEventListener("click", showFTemp);
+
+let cButton = document.querySelector("#button-c");
+cButton.addEventListener("click", showCTemp);
+
 let form = document.querySelector("#search-bar");
 form.addEventListener("submit", searchCity);
 
 defineTempData("São Paulo");
+
+//unit conversion (f and C temp)
+//Current Location button
+//modify background color by time
