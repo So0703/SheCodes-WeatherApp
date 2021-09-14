@@ -101,16 +101,14 @@ function showCTemp(event) {
 }
 
 function tempCurrentPosition(position) {
-  let changeCurrentCity = document.querySelector("#local-time");
-  changeCurrentCity.innerHTML = `Your position, ${week} ${month} ${day}, ${hour}:${minute}`;
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric`;
   let apiKey = `8be41953f4397437428711de5898be13`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayTemp);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemp);
 }
 
-function changeCurrentTemp() {
+function changeToCurrentTemp() {
   navigator.geolocation.getCurrentPosition(tempCurrentPosition);
 }
 
@@ -126,9 +124,8 @@ let form = document.querySelector("#search-bar");
 form.addEventListener("submit", searchCity);
 
 let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", changeCurrentTemp);
+currentLocationButton.addEventListener("click", changeToCurrentTemp);
 
-defineTempData("São Paulo");
+defineTempData("Paris");
 
-//Current Location button
 //modify background color by time
