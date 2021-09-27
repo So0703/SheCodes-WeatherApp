@@ -90,6 +90,25 @@ function displayHourlyForecast() {
   hourlyForecast.innerHTML = hourForecast;
 }
 
+function displayWeeklyForecast() {
+  let weeklyForecast = document.querySelector("#weekly-forecast");
+
+  let weekForecast = "";
+  weekForecast =
+    weekForecast +
+    `
+   <div class="col">Thu</div>
+      <div class="col">
+      <img
+      src="http://openweathermap.org/img/wn/04d@2x.png"
+      class="col forecast-icon"
+      />
+      </div>
+      <div class="col">23°/11°</div>
+  `;
+  weeklyForecast.innerHTML = weekForecast;
+}
+
 function defineTempData(city) {
   let apiKey = `8be41953f4397437428711de5898be13`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -124,6 +143,7 @@ currentLocationButton.addEventListener("click", changeToCurrentTemp);
 
 defineTempData("São Paulo");
 displayHourlyForecast();
+displayWeeklyForecast();
 
 //modify background color by time
 //forecast
