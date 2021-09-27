@@ -74,6 +74,22 @@ function displayTemp(response) {
   );
 }
 
+function displayHourlyForecast() {
+  let hourlyForecast = document.querySelector("#hourly-forecast");
+
+  let hourForecast = "";
+  hourForecast =
+    hourForecast +
+    `
+   <div class="col">
+     <div>17:00</div>
+     <div>17°</div>
+    </div>
+  `;
+
+  hourlyForecast.innerHTML = hourForecast;
+}
+
 function defineTempData(city) {
   let apiKey = `8be41953f4397437428711de5898be13`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -107,6 +123,7 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", changeToCurrentTemp);
 
 defineTempData("São Paulo");
+displayHourlyForecast();
 
 //modify background color by time
 //forecast

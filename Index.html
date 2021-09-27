@@ -31,7 +31,7 @@
           </div>
           <div class="row row-cols-3 main-head-section">
             <div class="col-5 main-info">
-              <span class="main-temp" id="temperature"></span
+              <span id="temperature"></span
               ><img src="" id="weather-icon" class="icon-image" />
             </div>
           </div>
@@ -47,12 +47,7 @@
               Min/Max: <span id="min-max"></span>°
             </div>
           </div>
-          <div class="row row-cols-3 head-section-3" id="hour-forecast">
-            <div class="col">
-              17:00 <br />
-              17°
-            </div>
-          </div>
+          <div class="row row-cols-3 head-section-3" id="hourly-forecast"></div>
         </div>
         <div class="middle-section">
           <div class="row row-cols-3 middle-section-1">
@@ -61,12 +56,14 @@
             <div class="col">Max°/Min°</div>
           </div>
           <div class="row row-cols-3 middle-section-2" id="week-forecast">
-            <div>08/03</div>
-            <img
-              src="http://openweathermap.org/img/wn/04d@2x.png"
-              class="forecast-icon"
-            />
-            <div>23°/11°</div>
+            <div>
+              <div>08/03</div>
+              <img
+                src="http://openweathermap.org/img/wn/04d@2x.png"
+                class="forecast-icon"
+              />
+              <div>23°/11°</div>
+            </div>
           </div>
         </div>
         <form class="location-search" id="search-bar">
