@@ -78,14 +78,17 @@ function displayHourlyForecast() {
   let hourlyForecast = document.querySelector("#hourly-forecast");
 
   let hourForecast = "";
-  hourForecast =
-    hourForecast +
-    `
+  let hours = ["17:00", "20:00", "23:00"];
+  hours.forEach(function (time) {
+    hourForecast =
+      hourForecast +
+      `
    <div class="col">
-     <div>17:00</div>
+     <div>${time}</div>
      <div>17°</div>
     </div>
   `;
+  });
 
   hourlyForecast.innerHTML = hourForecast;
 }
@@ -94,10 +97,12 @@ function displayWeeklyForecast() {
   let weeklyForecast = document.querySelector("#weekly-forecast");
 
   let weekForecast = "";
-  weekForecast =
-    weekForecast +
-    `
-   <div class="col">Thu</div>
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    weekForecast =
+      weekForecast +
+      `
+   <div class="col">${day}</div>
       <div class="col">
       <img
       src="http://openweathermap.org/img/wn/04d@2x.png"
@@ -106,6 +111,8 @@ function displayWeeklyForecast() {
       </div>
       <div class="col">23°/11°</div>
   `;
+  });
+
   weeklyForecast.innerHTML = weekForecast;
 }
 
