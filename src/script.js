@@ -126,6 +126,7 @@ form.addEventListener("submit", searchCity);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", changeToCurrentTemp);
 
-defineTempData("Paris");
+defineTempData("São Paulo");
 
 //modify background color by time
+//forecast

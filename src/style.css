@@ -99,6 +99,12 @@ body {
   margin-bottom: 10px;
   font-weight: 700;
 }
+.forecast-icon {
+  width: 80px;
+  position: relative;
+  top: -15px;
+  margin: 0 65px 0 60px;
+}
 .location-search {
   text-align: center;
   margin: 20px;
