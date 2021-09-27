@@ -39,6 +39,35 @@ function displayDateTime(timestamp) {
   return `${week}, ${month} ${day}, ${hour}:${minute}`;
 }
 
+function displayCorrectTime(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let now = date.getDay();
+  let week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let day = date.getDate();
+  if (day < 10) {
+    day = `0${day}`;
+  }
+
+  let months = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+  let month = months[date.getMonth()];
+
+  return `${day}/${month}, ${week[now]}`;
+}
+
 function displayTemp(response) {
   cTempValue = response.data.main.temp;
 
@@ -84,9 +113,11 @@ function getForecastCoords(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-function displayForecast() {
-  let hourlyForecast = document.querySelector("#hourly-forecast");
+function displayForecast(response) {
+  console.log(response);
 
+  let forecastByHour = response.data.hourly;
+  let hourlyForecast = document.querySelector("#hourly-forecast");
   let hourForecast = "";
   let hours = ["17:00", "20:00", "23:00"];
   hours.forEach(function (time) {
@@ -100,22 +131,28 @@ function displayForecast() {
   `;
   });
 
+  let forecastByWeek = response.data.daily;
   let weeklyForecast = document.querySelector("#weekly-forecast");
   let weekForecast = "";
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    weekForecast =
-      weekForecast +
-      `
-   <div class="col">${day}</div>
+  forecastByWeek.forEach(function (forecastWeekInfo, index) {
+    if (index < 5) {
+      weekForecast =
+        weekForecast +
+        `
+   <div class="col">${displayCorrectTime(forecastWeekInfo.dt)}</div>
       <div class="col">
       <img
-      src="http://openweathermap.org/img/wn/04d@2x.png"
+      src="http://openweathermap.org/img/wn/${
+        forecastWeekInfo.weather[0].icon
+      }@2x.png"
       class="col forecast-icon"
       />
       </div>
-      <div class="col">23°/11°</div>
+      <div class="col">${Math.round(forecastWeekInfo.temp.max)}°/${Math.round(
+          forecastWeekInfo.temp.min
+        )}°</div>
   `;
+    }
   });
 
   hourlyForecast.innerHTML = hourForecast;
