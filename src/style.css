@@ -1,9 +1,5 @@
 body {
-  background: linear-gradient(
-    93.1deg,
-    rgb(238, 254, 183) 19.1%,
-    rgb(169, 254, 222) 53.9%,
-    rgb(90, 222, 255) 92%
+background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
   );
 }
 .body {
@@ -21,11 +17,7 @@ body {
   border: 3px solid black;
   border-radius: 10px;
   margin: 20px;
-  background: linear-gradient(
-    93.1deg,
-    rgb(238, 254, 183) 19.1%,
-    rgb(169, 254, 222) 53.9%,
-    rgb(90, 222, 255) 92%
+background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
   );
 }
 .head-section-1 {
@@ -75,11 +67,7 @@ body {
   margin: 20px;
   text-align: center;
   padding: 20px 10px 20px 10px;
-  background: linear-gradient(
-    93.1deg,
-    rgb(238, 254, 183) 19.1%,
-    rgb(169, 254, 222) 53.9%,
-    rgb(90, 222, 255) 92%
+background: linear-gradient(99.6deg, rgb(112, 128, 152) 10.6%, rgb(242, 227, 234) 32.9%, rgb(234, 202, 213) 52.7%, rgb(220, 227, 239) 72.8%, rgb(185, 205, 227) 81.1%, rgb(154, 180, 212) 102.4%);
   );
 }
 .middle-section-1 {

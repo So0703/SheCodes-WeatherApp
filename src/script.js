@@ -136,8 +136,6 @@ function getForecastByHour(city) {
 }
 
 function displayForecastHour(response) {
-  console.log(response);
-
   let hourlyForecast = document.querySelector("#hourly-forecast");
   let hourForecast = "";
   let forecastByHour = response.data.list;
@@ -154,7 +152,6 @@ function displayForecastHour(response) {
   hourlyForecast.innerHTML = hourForecast;
 }
 function displayForecastWeek(response) {
-  //console.log(response);
   let forecastByWeek = response.data.daily;
   let weeklyForecast = document.querySelector("#weekly-forecast");
   let weekForecast = "";
