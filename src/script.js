@@ -5,6 +5,9 @@ function displayDateTime(timestamp) {
     day = `0${day}`;
   }
   let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
   let minute = now.getMinutes();
   if (minute < 10) {
     minute = `0${minute}`;
@@ -39,7 +42,7 @@ function displayDateTime(timestamp) {
   return `${week}, ${month} ${day}, ${hour}:${minute}`;
 }
 
-function displayCorrectTime(timestamp) {
+function displayCorrectWeekTime(timestamp) {
   let date = new Date(timestamp * 1000);
   let now = date.getDay();
   let week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -66,6 +69,19 @@ function displayCorrectTime(timestamp) {
   let month = months[date.getMonth()];
 
   return `${day}/${month}, ${week[now]}`;
+}
+
+function displayCorrectHour(timestamp) {
+  let now = new Date(timestamp * 1000);
+  let hour = now.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+  let minute = now.getMinutes();
+  if (minute < 10) {
+    minute = `0${minute}`;
+  }
+  return `${hour}:${minute}`;
 }
 
 function displayTemp(response) {
@@ -101,7 +117,7 @@ function displayTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
-
+  getForecastByHour(localName);
   getForecastCoords(response.data.coord);
 }
 
@@ -110,27 +126,35 @@ function getForecastCoords(coordinates) {
   let lat = coordinates.lat;
   let lon = coordinates.lon;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayForecastWeek);
 }
 
-function displayForecast(response) {
+function getForecastByHour(city) {
+  let apiKey = `8be41953f4397437428711de5898be13`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=3&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecastHour);
+}
+
+function displayForecastHour(response) {
   console.log(response);
 
-  let forecastByHour = response.data.hourly;
   let hourlyForecast = document.querySelector("#hourly-forecast");
   let hourForecast = "";
-  let hours = ["17:00", "20:00", "23:00"];
-  hours.forEach(function (time) {
+  let forecastByHour = response.data.list;
+  forecastByHour.forEach(function (forecastHourInfo) {
     hourForecast =
       hourForecast +
       `
    <div class="col">
-     <div>${time}</div>
-     <div>17°</div>
+     <div>${displayCorrectHour(forecastHourInfo.dt)}</div>
+     <div>${Math.round(forecastHourInfo.main.temp)}°C</div>
     </div>
   `;
   });
-
+  hourlyForecast.innerHTML = hourForecast;
+}
+function displayForecastWeek(response) {
+  //console.log(response);
   let forecastByWeek = response.data.daily;
   let weeklyForecast = document.querySelector("#weekly-forecast");
   let weekForecast = "";
@@ -139,7 +163,7 @@ function displayForecast(response) {
       weekForecast =
         weekForecast +
         `
-   <div class="col">${displayCorrectTime(forecastWeekInfo.dt)}</div>
+   <div class="col">${displayCorrectWeekTime(forecastWeekInfo.dt)}</div>
       <div class="col">
       <img
       src="http://openweathermap.org/img/wn/${
@@ -155,7 +179,6 @@ function displayForecast(response) {
     }
   });
 
-  hourlyForecast.innerHTML = hourForecast;
   weeklyForecast.innerHTML = weekForecast;
 }
 
