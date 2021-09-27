@@ -35,7 +35,7 @@ body {
 .main-info {
   font-weight: 700;
   font-size: 50px;
-  margin: 30px 5px -30px -90px;
+  margin: 30px 5px -30px 120px;
 }
 
 .icon-image {
@@ -47,19 +47,6 @@ body {
   position: relative;
   top: 70px;
   right: -15px;
-}
-.button {
-  text-decoration: underline;
-  margin: 0;
-  border: none;
-  background-color: transparent;
-  color: black;
-  transition: all 200ms ease-in-out;
-}
-.button:hover {
-  font-size: 20px;
-  cursor: pointer;
-  color: blue;
 }
 .head-section-2 {
   position: relative;

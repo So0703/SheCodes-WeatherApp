@@ -61,7 +61,7 @@ function displayTemp(response) {
   let tempMinMax = document.querySelector("#min-max");
   let iconImage = document.querySelector("#weather-icon");
 
-  tempValue.innerHTML = `${temp}°`;
+  tempValue.innerHTML = `${temp}°C`;
   weatherDescription.innerHTML = `${describe}`;
   windSpeed.innerHTML = `${wind}`;
   humidityLevel.innerHTML = `${humidity}`;
@@ -86,20 +86,6 @@ function searchCity(event) {
   defineTempData(cityInput.value);
 }
 
-function showFTemp(event) {
-  event.preventDefault();
-  let fTemp = Math.round((cTempValue * 9) / 5 + 32);
-  let tempValue = document.querySelector("#temperature");
-  tempValue.innerHTML = `${fTemp}°`;
-}
-
-function showCTemp(event) {
-  event.preventDefault();
-  let tempValue = document.querySelector("#temperature");
-  let cTemp = Math.round(cTempValue);
-  tempValue.innerHTML = `${cTemp}°`;
-}
-
 function tempCurrentPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -113,12 +99,6 @@ function changeToCurrentTemp() {
 }
 
 let cTempValue = null;
-
-let fButton = document.querySelector("#button-f");
-fButton.addEventListener("click", showFTemp);
-
-let cButton = document.querySelector("#button-c");
-cButton.addEventListener("click", showCTemp);
 
 let form = document.querySelector("#search-bar");
 form.addEventListener("submit", searchCity);
