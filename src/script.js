@@ -72,9 +72,19 @@ function displayTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${icon}@2x.png`
   );
+
+  getForecastCoords(response.data.coord);
 }
 
-function displayHourlyForecast() {
+function getForecastCoords(coordinates) {
+  let apiKey = `8be41953f4397437428711de5898be13`;
+  let lat = coordinates.lat;
+  let lon = coordinates.lon;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast() {
   let hourlyForecast = document.querySelector("#hourly-forecast");
 
   let hourForecast = "";
@@ -90,12 +100,7 @@ function displayHourlyForecast() {
   `;
   });
 
-  hourlyForecast.innerHTML = hourForecast;
-}
-
-function displayWeeklyForecast() {
   let weeklyForecast = document.querySelector("#weekly-forecast");
-
   let weekForecast = "";
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   days.forEach(function (day) {
@@ -113,6 +118,7 @@ function displayWeeklyForecast() {
   `;
   });
 
+  hourlyForecast.innerHTML = hourForecast;
   weeklyForecast.innerHTML = weekForecast;
 }
 
@@ -126,6 +132,7 @@ function searchCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-name-input");
   defineTempData(cityInput.value);
+  defineWeekForecast(cityInput.value);
 }
 
 function tempCurrentPosition(position) {
@@ -149,8 +156,5 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", changeToCurrentTemp);
 
 defineTempData("São Paulo");
-displayHourlyForecast();
-displayWeeklyForecast();
 
 //modify background color by time
-//forecast
